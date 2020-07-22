@@ -65,7 +65,7 @@ router.post("/login", (req, res) => {
         jwt.sign(
           { result },
           process.env.DB_JWT_SECRET,
-          { expiresIn: "3days" },
+          { expiresIn: "10h" },
           (err, token) => {
             if (err) {
               res.status(500).send("Token non crée");
