@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const connection = require("../config");
 
-// Get all the facts
+// Get all the teams
 router.get("/", (req, res) => {
   let sql = "SELECT * FROM team";
 
@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
   });
 });
 
-//Get one fact with ID
+//Get one team with ID
 router.get("/:id", (req, res) => {
   let sql = "SELECT * FROM team WHERE id = ?";
   const idFact = req.params.id;
@@ -31,7 +31,7 @@ router.get("/:id", (req, res) => {
     }
   });
 });
-//Get team with id
+//Get id user in team with id
 router.get("/:idUser/:idTeam", (req, res) => {
   const idUser = req.params.idUser;
   const idTeam = req.params.idTeam;
