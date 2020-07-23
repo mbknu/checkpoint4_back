@@ -32,4 +32,19 @@ router.get("/:id", (req, res) => {
   });
 });
 
+//Post one facts
+router.post("/", (req, res) => {
+  const formBody = req.body;
+  connection.query("INSERT INTO fact SET ?", [formBody], (err, results) => {
+    if (err) {
+      res.status(500).json({
+        error: err.message,
+        sql: err.sql,
+      });
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
+
 module.exports = router;
